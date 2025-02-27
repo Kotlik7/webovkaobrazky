@@ -1,71 +1,55 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurace Hybernská</title>
+    <title>Food Ordering Website</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <div class="logo">
-            <img src="logo.png" alt="Restaurace Hybernská Logo">
+            <img src="logo.png" alt="Restaurant Logo">
+            <h1>Order Your Favorite Food</h1>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Domů</a></li>
-                <li><a href="#menu">Polední Menu</a></li>
-                <li><a href="#about">O Nás</a></li>
-                <li><a href="#contact">Kontakty</a></li>
-                <li><a href="#gallery">Galerie</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- Main Content Section -->
-    <main>
-        <section id="home">
-            <h1>Vítejte v Restauraci Hybernská</h1>
-            <p>Tradiční česká kuchyně a skvělé pivo v centru Prahy.</p>
-        </section>
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-item">
+            <img src="burger.jpg" alt="Burger">
+            <h3>Burger</h3>
+            <p>Delicious beef burger with fresh vegetables.</p>
+            <button class="add-to-cart" data-name="Burger" data-price="8">Add to Cart - $8</button>
+        </div>
+        <div class="menu-item">
+            <img src="pizza.jpg" alt="Pizza">
+            <h3>Pizza</h3>
+            <p>Cheesy pizza with your favorite toppings.</p>
+            <button class="add-to-cart" data-name="Pizza" data-price="12">Add to Cart - $12</button>
+        </div>
+        <div class="menu-item">
+            <img src="pasta.jpg" alt="Pasta">
+            <h3>Pasta</h3>
+            <p>Italian pasta with a rich tomato sauce.</p>
+            <button class="add-to-cart" data-name="Pasta" data-price="10">Add to Cart - $10</button>
+        </div>
+    </section>
 
-        <section id="menu">
-            <h2>Polední Menu</h2>
-            <div class="menu-items">
-                <div class="menu-item">
-                    <h3>Jídlo 1</h3>
-                    <p>Popis jídla 1</p>
-                </div>
-                <div class="menu-item">
-                    <h3>Jídlo 2</h3>
-                    <p>Popis jídla 2</p>
-                </div>
-                <!-- Add more menu items here -->
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>O Nás</h2>
-            <p>Informace o restauraci.</p>
-        </section>
-
-        <section id="gallery">
-            <h2>Galerie</h2>
-            <p>Obrázky restaurace.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Kontakty</h2>
-            <p>Telefon: 123-456-789</p>
-            <p>Email: info@restauracehybernska.cz</p>
-        </section>
-    </main>
+    <!-- Cart Section -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <p>Total: $<span id="total-price">0</span></p>
+        <button id="place-order">Place Order</button>
+    </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Restaurace Hybernská. Všechna práva vyhrazena.</p>
+        <p>&copy; 2025 restaurace u nevim All Rights Reserved.</p>
     </footer>
-
 </body>
 </html>
