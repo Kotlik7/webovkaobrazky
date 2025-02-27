@@ -1,235 +1,71 @@
-/clothing-store
-  /images
-    - shirt.jpg
-    - jeans.jpg
-    - jacket.jpg
-  index.html
-  style.css
-  script.js
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Clothing Store</title>
-      <link rel="stylesheet" href="style.css">
-      <script src="https://js.stripe.com/v3/"></script> <!-- Stripe JS -->
-  </head>
-  <body>
-      <!-- Navigation -->
-      <nav>
-          <div class="logo">Clothing Store</div>
-          <div class="cart">
-              <button id="view-cart">Cart (0)</button>
-          </div>
-      </nav>
-  
-      <!-- Hero Section -->
-      <section class="hero">
-          <h1>Welcome to Our Clothing Store!</h1>
-          <p>Shop the latest fashion trends</p>
-      </section>
-  
-      <!-- Products -->
-      <section class="products">
-          <div class="product">
-              <img src="images/shirt.jpg" alt="Shirt">
-              <h3>Classic Shirt</h3>
-              <p>$25.99</p>
-              <button class="add-to-cart" data-name="Classic Shirt" data-price="25.99" data-img="images/shirt.jpg">Add to Cart</button>
-          </div>
-          <div class="product">
-              <img src="images/jeans.jpg" alt="Jeans">
-              <h3>Denim Jeans</h3>
-              <p>$40.00</p>
-              <button class="add-to-cart" data-name="Denim Jeans" data-price="40.00" data-img="images/jeans.jpg">Add to Cart</button>
-          </div>
-          <div class="product">
-              <img src="images/jacket.jpg" alt="Jacket">
-              <h3>Leather Jacket</h3>
-              <p>$120.00</p>
-              <button class="add-to-cart" data-name="Leather Jacket" data-price="120.00" data-img="images/jacket.jpg">Add to Cart</button>
-          </div>
-      </section>
-  
-      <!-- Cart Modal -->
-      <div id="cart-modal" class="cart-modal">
-          <div class="cart-modal-content">
-              <h2>Your Cart</h2>
-              <ul id="cart-items"></ul>
-              <button id="checkout-button">Checkout</button>
-              <button id="close-cart">Close</button>
-          </div>
-      </div>
-  
-      <script src="script.js"></script>
-  </body>
-  </html>
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurace Hybernská</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Restaurace Hybernská Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Domů</a></li>
+                <li><a href="#menu">Polední Menu</a></li>
+                <li><a href="#about">O Nás</a></li>
+                <li><a href="#contact">Kontakty</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+            </ul>
+        </nav>
+    </header>
 
-body {
-    font-family: Arial, sans-serif;
-}
+    <!-- Main Content Section -->
+    <main>
+        <section id="home">
+            <h1>Vítejte v Restauraci Hybernská</h1>
+            <p>Tradiční česká kuchyně a skvělé pivo v centru Prahy.</p>
+        </section>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    background: #333;
-    color: white;
-}
+        <section id="menu">
+            <h2>Polední Menu</h2>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h3>Jídlo 1</h3>
+                    <p>Popis jídla 1</p>
+                </div>
+                <div class="menu-item">
+                    <h3>Jídlo 2</h3>
+                    <p>Popis jídla 2</p>
+                </div>
+                <!-- Add more menu items here -->
+            </div>
+        </section>
 
-.hero {
-    background: #f8f8f8;
-    padding: 2rem;
-    text-align: center;
-}
+        <section id="about">
+            <h2>O Nás</h2>
+            <p>Informace o restauraci.</p>
+        </section>
 
-.products {
-    display: flex;
-    justify-content: space-around;
-    margin: 2rem 0;
-}
+        <section id="gallery">
+            <h2>Galerie</h2>
+            <p>Obrázky restaurace.</p>
+        </section>
 
-.product {
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 1rem;
-    width: 30%;
-    background-color: #fff;
-}
+        <section id="contact">
+            <h2>Kontakty</h2>
+            <p>Telefon: 123-456-789</p>
+            <p>Email: info@restauracehybernska.cz</p>
+        </section>
+    </main>
 
-.product img {
-    width: 100%;
-    height: auto;
-}
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Restaurace Hybernská. Všechna práva vyhrazena.</p>
+    </footer>
 
-.cart-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
-}
-
-.cart-modal-content {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 400px;
-}
-
-button {
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
-}
-let cart = [];
-const cartButton = document.getElementById('view-cart');
-const cartModal = document.getElementById('cart-modal');
-const closeCartButton = document.getElementById('close-cart');
-const checkoutButton = document.getElementById('checkout-button');
-const cartItems = document.getElementById('cart-items');
-
-// Event listener for adding items to cart
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', (e) => {
-        const product = {
-            name: e.target.getAttribute('data-name'),
-            price: e.target.getAttribute('data-price'),
-            img: e.target.getAttribute('data-img'),
-        };
-        cart.push(product);
-        updateCart();
-    });
-});
-
-// Update cart UI
-function updateCart() {
-    const cartCount = document.querySelectorAll('.cart-item').length;
-    cartButton.textContent = `Cart (${cart.length})`;
-    cartItems.innerHTML = '';
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `<img src="${item.img}" alt="${item.name}" width="50"> ${item.name} - $${item.price}`;
-        cartItems.appendChild(li);
-    });
-}
-
-// Open Cart Modal
-cartButton.addEventListener('click', () => {
-    cartModal.style.display = 'flex';
-});
-
-// Close Cart Modal
-closeCartButton.addEventListener('click', () => {
-    cartModal.style.display = 'none';
-});
-
-// Checkout (mock integration with Stripe)
-checkoutButton.addEventListener('click', async () => {
-    const stripe = Stripe('your-publishable-key-here');
-    
-    // Create checkout session (you need server-side logic for this)
-    const response = await fetch('/create-checkout-session', {
-        method: 'POST',
-    });
-    const session = await response.json();
-    
-    const { error } = await stripe.redirectToCheckout({ sessionId: session.id });
-
-    if (error) {
-        console.error('Error during checkout:', error);
-    }
-});
-// server.js
-const express = require('express');
-const stripe = require('stripe')('your-secret-key-here');
-const app = express();
-const YOUR_DOMAIN = 'http://localhost:3000';
-
-app.use(express.static('public'));
-app.use(express.json());
-
-app.post('/create-checkout-session', async (req, res) => {
-    const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items: [
-            {
-                price_data: {
-                    currency: 'usd',
-                    product_data: {
-                        name: 'T-shirt',
-                    },
-                    unit_amount: 2500, // Amount in cents
-                },
-                quantity: 1,
-            },
-        ],
-        mode: 'payment',
-        success_url: `${YOUR_DOMAIN}/success.html`,
-        cancel_url: `${YOUR_DOMAIN}/cancel.html`,
-    });
-
-    res.json({ id: session.id });
-});
-
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
-});
-  
+</body>
+</html>
