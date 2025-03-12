@@ -3,53 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Ordering Website</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Clothing Store</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Restaurant Logo">
-            <h1>Order Your Favorite Food</h1>
+        <div class="container">
+            <h1>Clothing Store</h1>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Shop</a>
+                <a href="#">Cart</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Menu Section -->
-    <section id="menu">
-        <h2>Our Menu</h2>
-        <div class="menu-item">
-            <img src="https://www.gourmetfleisch.de/shop/images/products/gallery/detail/13980_1.jpg" alt="Burger">
-            <h3>Burger</h3>
-            <p>Delicious beef burger with fresh vegetables.</p>
-            <button class="add-to-cart" data-name="Burger" data-price="8">Add to Cart - $8</button>
-        </div>
-        <div class="menu-item">
-            <img src="https://as2.ftcdn.net/v2/jpg/09/67/18/25/1000_F_967182525_c1bQzn5zMr0hfBMv2uGG4Y1i5oeta5Tk.jpg" alt="Pizza">
-            <h3>Pizza</h3>
-            <p>Cheesy pizza with your favorite toppings.</p>
-            <button class="add-to-cart" data-name="Pizza" data-price="12">Add to Cart - $12</button>
-        </div>
-        <div class="menu-item">
-            <img src="https://images6.alphacoders.com/105/1052976.jpg" alt="Pasta">
-            <h3>Pasta</h3>
-            <p>Italian pasta with a rich tomato sauce.</p>
-            <button class="add-to-cart" data-name="Pasta" data-price="10">Add to Cart - $10</button>
+    <section class="products">
+        <div class="container">
+            <div class="product" data-id="1">
+                <img src="shirt.jpg" alt="Shirt">
+                <h3>Shirt</h3>
+                <p>$20.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product" data-id="2">
+                <img src="jeans.jpg" alt="Jeans">
+                <h3>Jeans</h3>
+                <p>$40.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+
+            <div class="product" data-id="3">
+                <img src="jacket.jpg" alt="Jacket">
+                <h3>Jacket</h3>
+                <p>$60.00</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
         </div>
     </section>
 
-    <!-- Cart Section -->
-    <section id="cart">
-        <h2>Your Cart</h2>
-        <div id="cart-items"></div>
-        <p>Total: $<span id="total-price">0</span></p>
-        <button id="place-order">Place Order</button>
+    <section class="cart">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be inserted here dynamically -->
+            </ul>
+            <div class="total">
+                <span>Total: $<span id="total-price">0.00</span></span>
+            </div>
+            <button id="checkout">Proceed to Checkout</button>
+        </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 restaurace u nevim All Rights Reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 Clothing Store</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
